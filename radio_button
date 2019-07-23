@@ -1,0 +1,71 @@
+import tkinter as tk
+
+root = tk.Tk()
+v = tk.IntVar()
+
+tk.Label(root,
+         text="""Choose a programing language:""",
+         justify = tk.LEFT,
+         padx = 20).pack()
+tk.Radiobutton(root,
+         text="Python",
+         padx = 20,
+         variable= v,
+         value= 1).pack(anchor=tk.W)
+
+tk.Radiobutton(root,
+         text="Perl",
+         padx = 20,
+         variable=v,
+         value=2).pack(anchor=tk.W)
+
+tk.Radiobutton(root,
+         text="JavaScript",
+         padx = 20,
+         variable=v,
+         value=3).pack(anchor=tk.W)
+
+tk.Radiobutton(root,
+         text="HTML",
+         padx = 20,
+         variable=v,
+         value=4).pack(anchor=tk.W)
+         
+root.mainloop()
+
+====================================================================================================================================
+
+import tkinter as tk
+
+root = tk.Tk()
+v = tk.IntVar()
+v.set(1) # INITIALIZING THE CHOICE,I.E PYTHON
+
+
+language = [
+    ("Python",1),
+    ("Pearl",2),
+    ("Java",3),
+    ("C++",4),
+    ("C",5)
+    ]
+
+def ShowChoice():
+    print(v.get())
+    
+tk.Label(root,
+         bg="pink",
+         text="""choose your favourite
+programming language:""",
+         justify = tk.LEFT,
+         padx =50).pack()
+         
+for val, language in enumerate(language):
+    tk.Radiobutton(root,
+                   text=language,
+                   padx = 50,
+                   variable=v,
+                   command=ShowChoice,
+                   value=val).pack(anchor=tk.W)
+
+root.mainloop()
